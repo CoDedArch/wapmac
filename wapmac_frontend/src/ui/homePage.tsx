@@ -21,24 +21,27 @@ class HomePage extends Component {
             className="relative h-[100vh]"
             style={{ backgroundImage: `url('/assets/landing-pic.png')` }}
           >
-            <div className="absolute px-6 pt-11 space-y-8 top-0 w-full left-0 right-0 h-full bg-black/55">
-              <h6 className="pr-14 text-xl text-white opacity-100">
-                <b><em>Water Pollution Monitoring and Conservation</em></b><span className="span-color"> (WAPMAC)</span> is an agency dedicated to addressing the critical issues of water
-                pollution in Ghana and promoting sustainable conservation
-                practices.
+            <div className="absolute pl-6 pt-11 space-y-8 top-0 w-full left-0 right-0 h-full bg-black/55">
+              <h6 className="pr-10 text-xl text-white opacity-100 font-itim">
+                <b>
+                  <em>Water Pollution Monitoring and Conservation</em>
+                </b>
+                <span className="span-color"> (WAPMAC)</span> is an agency
+                dedicated to addressing the critical issues of water pollution
+                in Ghana and promoting sustainable conservation practices.
               </h6>
-              <h1 className="agenda text-5xl font-bold">
+              <h1 className="agenda text-4xl font-koh pr-2">
                 Protecting Ghana’s Water Future
               </h1>
-              <button className="p-2 rounded-md w-fit opacity-100 text-lg shadow-xl main-bg">
+              <button className="p-2 rounded-md w-fit opacity-100 text-lg shadow-xl main-bg font-itim">
                 Learn more
               </button>
             </div>
           </section>
-          <section className="h-fit main-bg px-3">
+          <section className="h-fit main-bg px-3 ">
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
-                <AccordionTrigger className="text-xl span-color main-bg">
+                <AccordionTrigger className="text-xl span-color main-bg font-itim">
                   Our Targeted Audience
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
@@ -57,7 +60,7 @@ class HomePage extends Component {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
-                <AccordionTrigger className="text-xl span-color main-bg">
+                <AccordionTrigger className="text-xl span-color main-bg font-itim">
                   Our Key Activities
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
@@ -87,7 +90,7 @@ class HomePage extends Component {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-3">
-                <AccordionTrigger className="text-xl span-color main-bg">
+                <AccordionTrigger className="text-xl span-color main-bg font-itim">
                   Our Potential Solutions
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
@@ -125,19 +128,25 @@ class HomePage extends Component {
             WAPMAC @25
           </div>
           <div className="bg-white/55 w-full h-fit flex p-4 justify-between">
-          <div className="flex items-center">
-            <img src="/assets/email.png" alt="email" className="w-5" />
-            <a href="mailto:kelvingbolo98@gmail.com" className="ml-2 text-blue-500 font-extrabold underline" >
-              Email Us
-            </a>
+            <div className="flex items-center">
+              <img src="/assets/email.png" alt="email" className="w-5" />
+              <a
+                href="mailto:kelvingbolo98@gmail.com"
+                className="ml-2 text-blue-500 font-extrabold underline"
+              >
+                Email Us
+              </a>
+            </div>
+            <div className="flex items-center">
+              <img src="/assets/call.png" alt="call" className="w-5" />
+              <a
+                href="tel:+233248814260"
+                className="ml-2 text-orange-500 font-extrabold"
+              >
+                Place a Phone call
+              </a>
+            </div>
           </div>
-          <div className="flex items-center">
-            <img src="/assets/call.png" alt="call" className="w-5" />
-            <a href="tel:+233248814260" className="ml-2 text-orange-500 font-extrabold">
-              Place a Phone call
-            </a>
-          </div>
-        </div>
         </footer>
       </main>
     );

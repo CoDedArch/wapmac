@@ -12,7 +12,7 @@ class ObjectivesComp extends Component {
   render() {
     return (
       <section className="p-2 space-y-13 section-sec ">
-        <h1 className="text-3xl font-semibold text-center h-headers">
+        <h1 className="text-2xl font-semibold text-center h-headers font-koh mt-6">
           Our Objectives
         </h1>
         <div className="flex justify-center gap-6">
@@ -25,7 +25,7 @@ class ObjectivesComp extends Component {
             {objectives.map((obj, obj_index) => (
               <li key={obj_index} className="flex gap-5">
                 <span className="w-4 span-bg h-4 rounded-full absolute shadow-md"></span>
-                <p className="pl-9 pb-2 h-content font-bold">{obj}</p>
+                <p className="pl-9 pb-2 h-content font-bold font-itim">{obj}</p>
               </li>
             ))}
           </ul>

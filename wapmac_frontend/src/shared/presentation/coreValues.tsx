@@ -27,7 +27,7 @@ class CoreValuesComp extends Component {
   render() {
     return (
         <section className="relative main-bg pb-20">
-        <h1 className="text-center text-white font-bold text-2xl px-24 pt-10">
+        <h1 className="text-center text-white font-bold text-2xl px-20 pt-10 font-koh">
           Our Core Focused Areas
         </h1>
         <ul className="pl-6 pr-1 space-y-6 mt-10">
@@ -37,7 +37,7 @@ class CoreValuesComp extends Component {
               <span className="w-25 span-bg h-[01px] mt-3"></span>
               <div>
                 <h1 className="span-color font-bold">{area.area}</h1>{" "}
-                <p className="text-white text-md">{area.desc}</p>
+                <p className="text-white text-md font-itim">{area.desc}</p>
               </div>
             </li>
           ))}

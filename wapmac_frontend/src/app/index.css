@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Koh+Santepheap:wght@100;300;400;700;900&display=swap');
+
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
@@ -191,7 +194,7 @@ button {
 }
 
 .agenda {
-  color: var(--agenda-text-color);
+  color: #FFFEE9;
 }
 
 landing-section {
@@ -220,3 +223,13 @@ landing-section {
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
+.font-itim{
+  font-family: "Itim", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.font-koh{
+  font-family: "Koh Santepheap", serif;
+  font-weight: 900;
+  font-style: normal;
+}

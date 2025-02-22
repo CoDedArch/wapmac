@@ -129,7 +129,7 @@ class PartnersComp extends Component<PartnerProps, PartnerCompState> {
         className="main-bg relative -top-20 space-y-40 overflow-hidden"
         style={{ backgroundImage: `url('/assets/partners.png')` }}
       >
-        <h1 className="text-center text-white font-bold text-2xl px-24 pt-10">
+        <h1 className="text-center text-white font-bold text-2xl px-24 pt-10 font-koh">
           Our Team of Experts
         </h1>
         <section className="relative flex xl:justify-center">
@@ -145,10 +145,10 @@ class PartnersComp extends Component<PartnerProps, PartnerCompState> {
                 style={{ backgroundImage: `url(${currentExpert.img})` }}
               ></div>
               <h1 className="text-2xl font-bold">{currentExpert.name}</h1>
-              <h2 className="font-semibold mb-4">{currentExpert.role}</h2>
+              <h2 className="font-semibold mb-4 font-itim">{currentExpert.role}</h2>
               {currentExpert.responsibilities.map(
                 (responsibility, res_index) => (
-                  <p className="font-semibold" key={res_index}>
+                  <p className="font-semibold font-itim" key={res_index}>
                     - {responsibility}
                   </p>
                 )

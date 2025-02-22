@@ -98,7 +98,7 @@ export class Header extends Component<{}, HeaderState> {
           >
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
-                <AccordionTrigger className="text-xl span-color main-bg">
+                <AccordionTrigger className="text-xl span-color main-bg  font-itim">
                   Our Long-term Goals
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
@@ -119,7 +119,7 @@ export class Header extends Component<{}, HeaderState> {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
-                <AccordionTrigger className="text-xl span-color main-bg">
+                <AccordionTrigger className="text-xl span-color main-bg  font-itim">
                   Our Expected Impact
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
@@ -143,8 +143,8 @@ export class Header extends Component<{}, HeaderState> {
                   </ul>
                 </AccordionContent>
               </AccordionItem>
-              <AccordionItem value="item-3">
-                <AccordionTrigger className="text-xl span-color main-bg">
+              <AccordionItem value="item-3"> 
+                <AccordionTrigger className="text-xl span-color main-bg  font-itim">
                   Our Monitoring and Evaluations
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
@@ -163,7 +163,7 @@ export class Header extends Component<{}, HeaderState> {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-4">
-                <AccordionTrigger className="text-xl span-color main-bg">
+                <AccordionTrigger className="text-xl span-color main-bg  font-itim">
                   Our Partnership and Collaborations
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
@@ -192,7 +192,7 @@ export class Header extends Component<{}, HeaderState> {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-5">
-                <AccordionTrigger className="text-xl span-color-red main-bg">
+                <AccordionTrigger className="text-xl span-color-red  main-bg font-koh">
                   Our Anticipated Challenges
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
