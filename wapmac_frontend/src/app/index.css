@@ -37,17 +37,17 @@ button {
   color: #204801;
 }
 .h-content {
-  color: #03624C;
+  color: #03624c;
 }
 
-.span-color{
-  color: #03E4B0;
+.span-color {
+  color: #03e4b0;
 }
-.span-color-red{
+.span-color-red {
   color: #d12121;
 }
-.span-bg{
-  background-color: #03E4B0;
+.span-bg {
+  background-color: #03e4b0;
 }
 
 .agenda {
@@ -69,7 +69,7 @@ landing-section {
 }
 
 .triangle::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0.5em; /* Adjust this value to control the rounding */
   left: -5em;
@@ -105,7 +105,7 @@ landing-section {
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;;
+  --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.141 0.005 285.823);
   --sidebar-primary: oklch(0.21 0.006 285.885);
