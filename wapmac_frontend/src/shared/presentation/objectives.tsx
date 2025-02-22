@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 
 const objectives = [
   "To identify and address the causes and effects of water pollution.",
