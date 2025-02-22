@@ -30,7 +30,7 @@ class HomePage extends Component {
               <h1 className="agenda text-5xl font-bold">
                 Protecting Ghana’s Water Future
               </h1>
-              <button className="p-2 rounded-md w-fit opacity-100 text-lg shadow-xl">
+              <button className="p-2 rounded-md w-fit opacity-100 text-lg shadow-xl main-bg">
                 Learn more
               </button>
             </div>
@@ -38,11 +38,11 @@ class HomePage extends Component {
           <section className="h-fit main-bg px-3">
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
-                <AccordionTrigger className="text-xl span-color">
+                <AccordionTrigger className="text-xl span-color main-bg">
                   Our Targeted Audience
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
-                  <ul className="text-md pl-2 section-sec space-y-5 text-white">
+                  <ul className="text-md pl-2 section-sec space-y-5 text-white font-bold">
                     <li>
                       Communities and individuals dependent on water resources
                     </li>
@@ -57,11 +57,11 @@ class HomePage extends Component {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
-                <AccordionTrigger className="text-xl span-color">
+                <AccordionTrigger className="text-xl span-color main-bg">
                   Our Key Activities
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
-                  <ul className="text-md pl-2 section-sec space-y-5 text-white">
+                  <ul className="text-md pl-2 section-sec space-y-5 text-white font-bold">
                     <li>
                       Conducting water quality assessments and pollution audits
                     </li>
@@ -87,11 +87,11 @@ class HomePage extends Component {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-3">
-                <AccordionTrigger className="text-xl span-color">
+                <AccordionTrigger className="text-xl span-color main-bg">
                   Our Potential Solutions
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
-                  <ul className="text-md pl-2 section-sec space-y-5 text-white">
+                  <ul className="text-md pl-2 section-sec space-y-5 text-white font-bold">
                     <li>
                       Collaborating with technology providers for cost-effective
                       monitoring systems

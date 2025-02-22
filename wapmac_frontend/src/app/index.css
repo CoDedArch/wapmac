@@ -4,81 +4,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@layer base {
-  :root {
-    --background: hsl(166 94 20);
-    --agenda-text-color: hsl(57 100 96);
-  }
-}
-
-@theme {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-}
-
-.main-bg {
-  background-color: var(--color-background);
-}
-.body-bg {
-  background-color: var(--color-background);
-}
-.section-sec {
-  background-color: rgba(3, 98, 76, 0.45) !important;
-}
-.body-section {
-  background-color: white;
-}
-button {
-  background-color: var(--color-background);
-  color: white;
-}
-
-.h-headers {
-  color: #204801;
-}
-.h-content {
-  color: #03624c;
-}
-
-.span-color {
-  color: #03e4b0;
-}
-.span-color-red {
-  color: #d12121;
-}
-.span-bg {
-  background-color: #03e4b0;
-}
-
-.agenda {
-  color: var(--agenda-text-color);
-}
-
-landing-section {
-  background-color: var(--bg-opacity-color);
-}
-
-.triangle {
-  width: 0;
-  height: 0;
-  border-left: 5em solid transparent;
-  border-right: 5em solid transparent;
-  border-bottom: 9em solid blue;
-  border-radius: 50%;
-  position: relative;
-}
-
-.triangle::before {
-  content: "";
-  position: absolute;
-  top: 0.5em; /* Adjust this value to control the rounding */
-  left: -5em;
-  width: 10em;
-  height: 10em;
-  background: blue;
-  border-radius: 50%;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
 
 :root {
   --background: oklch(1 0 0);
@@ -218,3 +143,80 @@ landing-section {
     @apply bg-background text-foreground;
   }
 }
+
+@layer base {
+  :root {
+    --background: hsl(166 94 20);
+    --agenda-text-color: hsl(57 100 96);
+  }
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+.main-bg {
+  background-color: #03624c;
+}
+.body-bg {
+  background-color: var(--color-background);
+}
+.section-sec {
+  background-color: rgba(3, 98, 76, 0.45) !important;
+}
+.body-section {
+  background-color: white;
+}
+button {
+  background-color: var(--color-background);
+  color: white;
+}
+
+.h-headers {
+  color: #204801;
+}
+.h-content {
+  color: #03624c;
+}
+
+.span-color {
+  color: #03e4b0;
+}
+.span-color-red {
+  color: #d12121;
+}
+.span-bg {
+  background-color: #03e4b0;
+}
+
+.agenda {
+  color: var(--agenda-text-color);
+}
+
+landing-section {
+  background-color: var(--bg-opacity-color);
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 5em solid transparent;
+  border-right: 5em solid transparent;
+  border-bottom: 9em solid blue;
+  border-radius: 50%;
+  position: relative;
+}
+
+.triangle::before {
+  content: "";
+  position: absolute;
+  top: 0.5em; /* Adjust this value to control the rounding */
+  left: -5em;
+  width: 10em;
+  height: 10em;
+  background: blue;
+  border-radius: 50%;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+

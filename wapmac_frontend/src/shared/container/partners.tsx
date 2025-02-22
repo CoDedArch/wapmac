@@ -156,13 +156,13 @@ class PartnersComp extends Component<PartnerProps, PartnerCompState> {
             </div>
             <div className="flex gap-50">
               <button
-                className="w-10 flex justify-center"
+                className="w-10 flex justify-center main-bg"
                 onClick={this.handleLeftClick}
               >
                 <img src="/assets/left.png" alt="right arrow" />
               </button>
               <button
-                className="w-10 flex justify-center"
+                className="w-10 flex justify-center main-bg"
                 onClick={this.handleRightClick}
               >
                 <img src="/assets/right.png" alt="right arrow" />
