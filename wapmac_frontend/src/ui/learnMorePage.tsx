@@ -30,7 +30,7 @@ class LearnMorePage extends Component {
                   alt=""
                   className="rounded-2xl"
                 />
-                <article className="bg-black/20 space-y-5 font-itim pb-10">
+                <article className="bg-black/55 space-y-5 font-itim pb-10">
                   <p className="font-bold text-center text-md font-koh">
                     <span className="span-color italic">WAPMAC</span> Team
                     Engages MP for Tarkwa-Nsuaem on Water Pollution Control
