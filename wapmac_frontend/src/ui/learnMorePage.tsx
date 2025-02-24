@@ -17,7 +17,7 @@ class LearnMorePage extends Component {
             className="relative"
             style={{ backgroundImage: `url('/assets/landing-pic.png')` }}
           >
-            <div className="relative px-2 pt-2 space-y-8 top-0 w-full left-0 right-0 h-full bg-black/55 text-white">
+            <div className="relative pt-2 space-y-8 top-0 w-full left-0 right-0 h-full bg-black/55 text-white">
               <p className="font-extrabold agenda text-3xl text-center font-koh">
                 WAPMAC PROJECTS
               </p>
@@ -30,7 +30,7 @@ class LearnMorePage extends Component {
                   alt=""
                   className="rounded-2xl"
                 />
-                <article className="bg-black/55 space-y-5 font-itim pb-10">
+                <article className="bg-black/55 space-y-5 font-itim pb-10 px-2">
                   <p className="font-bold text-center text-md font-koh">
                     <span className="span-color italic">WAPMAC</span> Team
                     Engages MP for Tarkwa-Nsuaem on Water Pollution Control
@@ -205,58 +205,64 @@ class LearnMorePage extends Component {
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
-                </article>
-                <p className="font-extrabold span-color font-itim text-2xl pb-2">
-                  Technology Solutions
-                </p>
-                <ul className="pb-20 space-y-10">
-                  <li className="space-y-5">
-                    <p className="font-bold font-itim">WAPMAC MONITORING DEVICE</p>
-                    <div className="flex gap-2 flex-wrap justify-center">
-                      {
-                        Array.from({ length: 3 }, (_, image_index) => (
-                          <img
-                            key={image_index}
-                            src={`/assets/technologies/device${
-                              image_index + 3
-                            }.jpg`}
-                            alt="image"
-                            className="w-40 rounded-2xl"
-                          />
-                        ))
-                        /* this is for images */
-                      }
-                    </div>
-                  </li>
-                  <li className="space-y-5">
-                    <p className="font-bold font-itim">WAPMAC WATER QUALITY SENSOR</p>
-                    <div className="bg-gray-200 p-4 m-2 rounded">
-                      <video
-                        src="/assets/technologies/device1.mp4" // Replace with your actual video URL
-                        width="150"
-                        height="150"
-                        controls
-                        autoPlay
-                        loop
-                        muted
-                        className="w-full"
+                  <p className="font-extrabold span-color font-itim text-2xl pb-2">
+                    Technology Solutions
+                  </p>
+                  <ul className="pb-20 space-y-10">
+                    <li className="space-y-5">
+                      <p className="font-bold font-itim">
+                        WAPMAC MONITORING DEVICE
+                      </p>
+                      <div className="flex gap-2 flex-wrap justify-center">
+                        {
+                          Array.from({ length: 3 }, (_, image_index) => (
+                            <img
+                              key={image_index}
+                              src={`/assets/technologies/device${
+                                image_index + 3
+                              }.jpg`}
+                              alt="image"
+                              className="w-40 rounded-2xl"
+                            />
+                          ))
+                          /* this is for images */
+                        }
+                      </div>
+                    </li>
+                    <li className="space-y-5">
+                      <p className="font-bold font-itim">
+                        WAPMAC WATER QUALITY SENSOR
+                      </p>
+                      <div className="bg-gray-200 p-4 m-2 rounded">
+                        <video
+                          src="/assets/technologies/device1.mp4" // Replace with your actual video URL
+                          width="150"
+                          height="150"
+                          controls
+                          autoPlay
+                          loop
+                          muted
+                          className="w-full"
+                        />
+                      </div>
+                    </li>
+                    <li className="space-y-5">
+                      <p className="font-bold font-itim">
+                        WAPMAC WATER QUALITY MONITORING CENTER
+                      </p>
+                      <img
+                        src="/assets/technologies/device2.jpg"
+                        alt="monitoring center"
+                        className="rounded-2xl"
                       />
-                    </div>
-                  </li>
-                  <li className="space-y-5">
-                    <p className="font-bold font-itim">WAPMAC WATER QUALITY MONITORING CENTER</p>
-                    <img
-                      src="/assets/technologies/device2.jpg"
-                      alt="monitoring center"
-                      className="rounded-2xl"
-                    />
-                  </li>
-                </ul>
+                    </li>
+                  </ul>
+                </article>
               </div>
             </div>
           </section>
         </section>
-        <footer className="main-bg p-2  rounded-b-2xl w-full space-y-2">
+        <footer className="main-bg p-2 rounded-b-2xl w-full space-y-2">
           <div className="flex items-center justify-between span-color font-extrabold gap-2">
             <div className="flex items-center">
               <img src="/assets/logo.png" alt="logo" className="w-[3.5em]" />
