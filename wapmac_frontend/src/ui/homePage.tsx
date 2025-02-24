@@ -58,7 +58,7 @@ class HomePage extends Component {
           <section className="h-fit main-bg px-3 ">
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value="item-1">
-                <AccordionTrigger className="text-xl span-color main-bg font-itim">
+                <AccordionTrigger className="text-xl span-color main-bg font-itim px-1">
                   Our Targeted Audience
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
@@ -77,7 +77,7 @@ class HomePage extends Component {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-2">
-                <AccordionTrigger className="text-xl span-color main-bg font-itim">
+                <AccordionTrigger className="text-xl span-color main-bg font-itim px-1">
                   Our Key Activities
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
@@ -107,7 +107,7 @@ class HomePage extends Component {
                 </AccordionContent>
               </AccordionItem>
               <AccordionItem value="item-3">
-                <AccordionTrigger className="text-xl span-color main-bg font-itim">
+                <AccordionTrigger className="text-xl span-color main-bg font-itim px-1">
                   Our Potential Solutions
                 </AccordionTrigger>
                 <AccordionContent className="space-y-2">
