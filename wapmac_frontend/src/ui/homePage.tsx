@@ -49,7 +49,7 @@ class HomePage extends Component {
               </div>
               <Link
                 to="/learn-more"
-                className="p-2 rounded-md w-fit opacity-100 text-lg shadow-xl main-bg font-itim text-white"
+                className="p-2 ml-6 rounded-md w-fit opacity-100 text-lg shadow-xl main-bg font-itim text-white"
               >
                 Learn more
               </Link>
