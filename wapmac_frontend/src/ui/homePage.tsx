@@ -10,6 +10,7 @@ import MissionVisionComp from "@/shared/presentation/missionVision";
 import CoreValuesComp from "@/shared/presentation/coreValues";
 import ObjectivesComp from "@/shared/presentation/objectives";
 import PartnersComp from "@/shared/container/partners";
+import { Link } from "react-router-dom";
 
 class HomePage extends Component {
   render() {
@@ -21,21 +22,37 @@ class HomePage extends Component {
             className="relative h-[100vh]"
             style={{ backgroundImage: `url('/assets/landing-pic.png')` }}
           >
-            <div className="absolute pl-6 pt-11 space-y-8 top-0 w-full left-0 right-0 h-full bg-black/55">
-              <h6 className="pr-10 text-xl text-white opacity-100 font-itim">
-                <b>
-                  <em>Water Pollution Monitoring and Conservation</em>
-                </b>
-                <span className="span-color"> (WAPMAC)</span> is an agency
-                dedicated to addressing the critical issues of water pollution
-                in Ghana and promoting sustainable conservation practices.
-              </h6>
-              <h1 className="agenda text-4xl font-koh pr-2">
-                Protecting Ghana’s Water Future
-              </h1>
-              <button className="p-2 rounded-md w-fit opacity-100 text-lg shadow-xl main-bg font-itim">
+            <div className="absolute pt-11 space-y-8 top-0 w-full left-0 right-0 h-full bg-black/55">
+              <div className="pl-6 space-y-4">
+                <h6 className="pr-10 text-xl text-white opacity-100 font-itim">
+                  <b>
+                    <em>Water Pollution Monitoring and Conservation</em>
+                  </b>
+                  <span className="span-color"> (WAPMAC)</span> is an agency
+                  dedicated to addressing the critical issues of water pollution
+                  in Ghana and promoting sustainable conservation practices.
+                </h6>
+                <h1 className="agenda text-4xl font-koh pr-2">
+                  Protecting Ghana’s Water Future
+                </h1>
+              </div>
+              <div className="bg-gray-200 m-4 rounded">
+                <video
+                  src="/assets/technologies/device.mp4" // Replace with your actual video URL
+                  width="150"
+                  height="150"
+                  controls
+                  autoPlay
+                  muted
+                  className="w-full rounded-2xl"
+                />
+              </div>
+              <Link
+                to="/learn-more"
+                className="p-2 rounded-md w-fit opacity-100 text-lg shadow-xl main-bg font-itim text-white"
+              >
                 Learn more
-              </button>
+              </Link>
             </div>
           </section>
           <section className="h-fit main-bg px-3 ">
@@ -123,9 +140,12 @@ class HomePage extends Component {
           <PartnersComp />
         </section>
         <footer className="main-bg p-2 relative rounded-b-2xl w-full space-y-2">
-          <div className="flex items-center justify-center  span-color font-extrabold gap-2">
-            <img src="/assets/logo.png" alt="logo" />
-            WAPMAC @25
+          <div className="flex items-center justify-between span-color font-extrabold gap-2">
+            <div className="flex items-center">
+              <img src="/assets/logo.png" alt="logo" className="w-[3.5em]" />
+              WAPMAC
+            </div>
+            <span className="text-white">copyright@2025</span>
           </div>
           <div className="bg-white/55 w-full h-fit flex p-4 justify-between">
             <div className="flex items-center">

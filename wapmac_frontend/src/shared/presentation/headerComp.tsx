@@ -1,4 +1,5 @@
 import { Component, createRef } from "react";
+import { Link } from "react-router-dom";
 import {
   Accordion,
   AccordionItem,
@@ -59,7 +60,7 @@ export class Header extends Component<{}, HeaderState> {
           <div className="flex items-center">
             <img src="/assets/email.png" alt="email" className="w-5" />
             <a
-              href="mailto:kelvingbolo98@gmail.com"
+              href="mailto:wapmacagency@gmail.com"
               className="ml-2 text-blue-500 font-extrabold underline"
             >
               Email Us
@@ -68,7 +69,7 @@ export class Header extends Component<{}, HeaderState> {
           <div className="flex items-center">
             <img src="/assets/call.png" alt="call" className="w-5" />
             <a
-              href="tel:+233248814260"
+              href="tel:+233249410209"
               className="ml-2 text-orange-500 font-extrabold"
             >
               Place a Phone call
@@ -76,10 +77,13 @@ export class Header extends Component<{}, HeaderState> {
           </div>
         </div>
         <header className="flex items-center justify-between px-5 py-2 pt-4 pb-6 main-bg">
-          <div className="flex items-center span-color font-extrabold gap-2">
+          <Link to="/" className="flex items-center span-color font-extrabold gap-2">
             <img src="/assets/logo.png" alt="logo" />
-            WAPMAC
-          </div>
+            <p>
+              WAPMAC
+              <span className="block text-[10px] text-white">Safeguarding Water for Generations</span>
+            </p>
+          </Link>
           {/* Toggle between menu.png and close.png based on isMenuOpen state */}
           <img
             ref={this.menuButtonRef}
@@ -143,7 +147,7 @@ export class Header extends Component<{}, HeaderState> {
                   </ul>
                 </AccordionContent>
               </AccordionItem>
-              <AccordionItem value="item-3"> 
+              <AccordionItem value="item-3">
                 <AccordionTrigger className="text-xl span-color main-bg  font-itim">
                   Our Monitoring and Evaluations
                 </AccordionTrigger>
