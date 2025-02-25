@@ -1,94 +1,117 @@
-import { Component } from "react";
+import { Component, createRef, RefObject } from "react";
+import { motion } from "framer-motion";
+import { Variant3 } from "../constants/variants";
 
-interface PartnerProps { }
+interface PartnerProps {}
 
 interface Expert {
-    img: string;
-    name: string;
-    role: string;
-    responsibilities: string[];
-  }
-  
+  img: string;
+  name: string;
+  role: string;
+  responsibilities: string[];
+}
+
 interface PartnerCompState {
   currentExpert: Expert;
   leftExperts: Expert[];
   rightExperts: Expert[];
+  inView: boolean;
 }
 
 const experts: Expert[] = [
-    {
-      img: "assets/gyimah.jpg",
-      name: "Dr Eric Gyimah",
-      role: "Environmental Engineer and Ecotoxicologist",
-      responsibilities: [
-        "He is responsible for laboratory testing of water particles and other pollution parameters",
-        "He is responsible for environmental reclamation and air pollution monitoring",
-        "⁠Advice the team on environmental impact assessment",
-      ],
-    },
-    {
-      img: "assets/feld.jpg",
-      name: "Feld Yelfaanibe",
-      role: "Product Lead and Software Engineer",
-      responsibilities: [
-        "He is responsible for designing, manufacturing and testing of the monitoring devices",
-        "⁠He is responsible for Software Development and ensure successful Hardware integration",
-      ],
-    },
-    {
-      img: "assets/Raph.jpg",
-      name: "Raphael Zorve",
-      role: "Drone Pilot and Publicity Lead",
-      responsibilities: [
-        " He seeks to it that mining sites are well captured for accessing",
-        "He is responsible for identifying river tributes",
-        "He is responsible for publishing WAPMAC projects for public use",
-      ],
-    },
-    {
-      img: "assets/enoch.jpg",
-      name: "Enock Beenuyie",
-      role: "Community Affairs Officer",
-      responsibilities: [
-        "He leads in community engagement for smooth project implementation",
-        "He is responsible for public sensitization",
-        "⁠He serves as Public Relations for the project",
-        "He leads in project funding",
-      ],
-    },
-    {
-      img: "assets/ben.jpg",
-      name: "Benjamin Atta Nyarko",
-      role: "Geomatic Engineer & Project Manager",
-      responsibilities: [
-        "Develops strategic business models for the project",
-        "Coordinate the team for successful project execution",
-        "Responsible of mapping rivers and mining sites along the rivers for buffering",
-        "⁠Responsible for identifying monitoring points for setting out",
-        "Draws implementation strategies depending on location and terrain of project implementation",
-        "Coordinates various stakeholders for successful project execution",
-      ],
-    },
-    {
-      img: "assets/catherine.jpg",
-      name: "Mrs Catherine Atta Nyarko",
-      role: "Project Administrator",
-      responsibilities: [
-        "Responsible for project documentations",
-        "Responsible for community engagements",
-      ],
-    },
-  ];
-  
+  {
+    img: "assets/gyimah.jpg",
+    name: "Dr Eric Gyimah",
+    role: "Environmental Engineer and Ecotoxicologist",
+    responsibilities: [
+      "He is responsible for laboratory testing of water particles and other pollution parameters",
+      "He is responsible for environmental reclamation and air pollution monitoring",
+      "⁠Advice the team on environmental impact assessment",
+    ],
+  },
+  {
+    img: "assets/feld.jpg",
+    name: "Feld Yelfaanibe",
+    role: "Product Lead and Software Engineer",
+    responsibilities: [
+      "He is responsible for designing, manufacturing and testing of the monitoring devices",
+      "⁠He is responsible for Software Development and ensure successful Hardware integration",
+    ],
+  },
+  {
+    img: "assets/Raph.jpg",
+    name: "Raphael Zorve",
+    role: "Drone Pilot and Publicity Lead",
+    responsibilities: [
+      " He seeks to it that mining sites are well captured for accessing",
+      "He is responsible for identifying river tributes",
+      "He is responsible for publishing WAPMAC projects for public use",
+    ],
+  },
+  {
+    img: "assets/enoch.jpg",
+    name: "Enock Beenuyie",
+    role: "Community Affairs Officer",
+    responsibilities: [
+      "He leads in community engagement for smooth project implementation",
+      "He is responsible for public sensitization",
+      "⁠He serves as Public Relations for the project",
+      "He leads in project funding",
+    ],
+  },
+  {
+    img: "assets/ben.jpg",
+    name: "Benjamin Atta Nyarko",
+    role: "Geomatic Engineer & Project Manager",
+    responsibilities: [
+      "Develops strategic business models for the project",
+      "Coordinate the team for successful project execution",
+      "Responsible of mapping rivers and mining sites along the rivers for buffering",
+      "⁠Responsible for identifying monitoring points for setting out",
+      "Draws implementation strategies depending on location and terrain of project implementation",
+      "Coordinates various stakeholders for successful project execution",
+    ],
+  },
+  {
+    img: "assets/catherine.jpg",
+    name: "Mrs Catherine Atta Nyarko",
+    role: "Project Administrator",
+    responsibilities: [
+      "Responsible for project documentations",
+      "Responsible for community engagements",
+    ],
+  },
+];
 
 class PartnersComp extends Component<PartnerProps, PartnerCompState> {
+  ref: RefObject<HTMLDivElement | null>;
+  observer!: IntersectionObserver;
   constructor(props: PartnerProps) {
     super(props);
     this.state = {
       currentExpert: experts[0],
       leftExperts: experts.slice(1, Math.ceil(experts.length / 2) + 1),
       rightExperts: experts.slice(Math.ceil(experts.length / 2) + 1),
+      inView: false,
     };
+    this.ref = createRef<HTMLDivElement>();
+  }
+  componentDidMount() {
+    this.observer = new IntersectionObserver(
+      ([entry]) => {
+        this.setState({ inView: entry.isIntersecting });
+      },
+      { threshold: 0.1 }
+    );
+    if (this.ref.current) {
+      this.observer.observe(this.ref.current);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.observer && this.ref.current) {
+      this.observer.unobserve(this.ref.current);
+    }
   }
 
   handleLeftClick = () => {
@@ -124,8 +147,11 @@ class PartnersComp extends Component<PartnerProps, PartnerCompState> {
   };
   render() {
     const { currentExpert, leftExperts, rightExperts } = this.state;
+    const { inView } = this.state;
+    const controls = inView ? "visible" : "hidden";
     return (
       <section
+        ref={this.ref}
         className="main-bg relative -top-20 space-y-40 overflow-hidden"
         style={{ backgroundImage: `url('/assets/partners.png')` }}
       >
@@ -139,13 +165,20 @@ class PartnersComp extends Component<PartnerProps, PartnerCompState> {
           )}
 
           <div className="flex flex-col justify-center items-center space-y-6 pb-10 px-5">
-            <div className="relative bg-white p-2 text-center pt-20 h-content rounded-3xl mx-4 shadow-2xl">
+            <motion.div
+              variants={Variant3}
+              initial="hidden"
+              animate={controls}
+              className="relative bg-white p-2 text-center pt-20 h-content rounded-3xl mx-4 shadow-2xl"
+            >
               <div
                 className="absolute w-[9em] h-[9em] -top-20 rounded-full left-[27%] xl:left-[40%]  bg-cover"
                 style={{ backgroundImage: `url(${currentExpert.img})` }}
               ></div>
               <h1 className="text-2xl font-bold">{currentExpert.name}</h1>
-              <h2 className="font-semibold mb-4 font-itim">{currentExpert.role}</h2>
+              <h2 className="font-semibold mb-4 font-itim">
+                {currentExpert.role}
+              </h2>
               {currentExpert.responsibilities.map(
                 (responsibility, res_index) => (
                   <p className="font-semibold font-itim" key={res_index}>
@@ -153,7 +186,7 @@ class PartnersComp extends Component<PartnerProps, PartnerCompState> {
                   </p>
                 )
               )}
-            </div>
+            </motion.div>
             <div className="flex gap-50">
               <button
                 className="w-10 flex justify-center main-bg"
