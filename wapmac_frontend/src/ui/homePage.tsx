@@ -1,4 +1,5 @@
-import { Component } from "react";
+import { Component, createRef, RefObject } from "react";
+import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionItem,
@@ -11,9 +12,48 @@ import CoreValuesComp from "@/shared/presentation/coreValues";
 import ObjectivesComp from "@/shared/presentation/objectives";
 import PartnersComp from "@/shared/container/partners";
 import { Link } from "react-router-dom";
+import { Variant1 } from "@/shared/constants/variants";
+import { Variant2 } from "@/shared/constants/variants";
 
-class HomePage extends Component {
+interface HomeProp {}
+
+class HomePage extends Component<HomeProp, { inView: boolean }> {
+
+  ref: RefObject<HTMLDivElement | null>;
+  observer!: IntersectionObserver;
+  hasAnimated: boolean = false;
+
+  constructor(props: HomeProp) {
+    super(props);
+    this.state ={
+      inView: false,
+    }
+    this.ref = createRef<HTMLDivElement>();
+  }
+
+  componentDidMount() {
+    this.observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !this.hasAnimated) {
+          this.setState({ inView: true });
+          this.hasAnimated = true;
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (this.ref.current) {
+      this.observer.observe(this.ref.current);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.observer && this.ref.current) {
+      this.observer.unobserve(this.ref.current);
+    }
+  }
   render() {
+    const { inView } = this.state;
+    const controls = inView ? "visible" : "hidden";
     return (
       <main className="">
         <Header />
@@ -22,37 +62,40 @@ class HomePage extends Component {
             className="relative h-[100vh]"
             style={{ backgroundImage: `url('/assets/landing-pic.png')` }}
           >
-            <div className="absolute pt-11 space-y-8 top-0 w-full left-0 right-0 h-full bg-black/55">
+            <div className="absolute pt-11 space-y-8 top-0 w-full left-0 right-0 h-full bg-black/55" ref={this.ref}>
               <div className="pl-6 space-y-4">
-                <h6 className="pr-10 text-xl text-white opacity-100 font-itim">
+                <motion.h6
+                  variants={Variant1}
+                  initial="hidden"
+                  animate={controls}
+                  className="pr-10 text-xl text-white opacity-100 font-itim"
+                >
                   <b>
                     <em>Water Pollution Monitoring and Conservation</em>
                   </b>
                   <span className="span-color"> (WAPMAC)</span> is an agency
                   dedicated to addressing the critical issues of water pollution
                   in Ghana and promoting sustainable conservation practices.
-                </h6>
+                </motion.h6>
+              </div>
+              <motion.div initial="hidden" animate={controls} variants={Variant2} className="m-4 rounded space-y-5">
                 <h1 className="agenda text-4xl font-koh pr-2">
                   Protecting Ghana’s Water Future
                 </h1>
-              </div>
-              <div className="bg-gray-200 m-4 rounded">
                 <video
                   src="/assets/technologies/device.mp4" // Replace with your actual video URL
                   width="150"
                   height="150"
                   controls
-                  autoPlay
-                  muted
                   className="w-full rounded-2xl"
                 />
-              </div>
-              <Link
-                to="/learn-more"
-                className="p-2 ml-6 rounded-md w-fit opacity-100 text-lg shadow-xl main-bg font-itim text-white"
-              >
-                Learn more
-              </Link>
+                <Link
+                  to="/learn-more"
+                  className="p-2 rounded-md w-fit opacity-100 text-lg shadow-xl main-bg font-itim text-white"
+                >
+                  Learn more
+                </Link>
+              </motion.div>
             </div>
           </section>
           <section className="h-fit main-bg px-3 ">

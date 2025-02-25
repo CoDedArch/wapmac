@@ -1,14 +1,30 @@
 import { Component } from "react";
 
 import { Header } from "@/shared/presentation/headerComp";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@/components/ui/accordion";
-class LearnMorePage extends Component {
+
+class LearnMorePage extends Component<{}, { currentImageIndex: number }> {
+  intervalId: NodeJS.Timeout | undefined;
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      currentImageIndex: 0,
+    };
+  }
+  componentDidMount() {
+    this.intervalId = setInterval(this.cycleImages, 4000); // Set interval to 2 seconds
+  }
+  componentWillUnmount() {
+    if (this.intervalId) {
+      clearInterval(this.intervalId); // Clear interval on unmount
+    }
+  }
+  cycleImages = () => {
+    this.setState((prevState) => ({
+      currentImageIndex: (prevState.currentImageIndex + 1) % 20, // Cycle through 20 images
+    }));
+  };
   render() {
+    const { currentImageIndex } = this.state;
     return (
       <main className="">
         <Header />
@@ -22,14 +38,16 @@ class LearnMorePage extends Component {
                 WAPMAC PROJECTS
               </p>
               <div>
-                <p className="font-extrabold span-color text-2xl font-itim pb-2">
+                <p className="font-extrabold span-color text-2xl font-itim pb-2 pl-2">
                   Upcoming
                 </p>
-                <img
-                  src="/assets/article/intro.jpg"
-                  alt=""
-                  className="rounded-2xl"
-                />
+                <div className="flex gap-2 flex-wrap justify-center p-3">
+                  <img
+                    src={`/assets/article/intro${currentImageIndex}.jpg`}
+                    alt="image"
+                    className="max-w-full max-h-60 rounded-2xl"
+                  />
+                </div>
                 <article className="bg-black/55 space-y-5 font-itim pb-10 px-2">
                   <p className="font-bold text-center text-md font-koh">
                     <span className="span-color italic">WAPMAC</span> Team
@@ -180,31 +198,6 @@ class LearnMorePage extends Component {
                       #GalamseyMustStopInourRivers. #EnvironmentalConservation
                     </p>
                   </div>
-
-                  <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="item-1">
-                      <AccordionTrigger className="text-xl span-color main-bg font-itim px-1">
-                        Pictures from our engagement
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <div className="flex gap-2 flex-wrap justify-center">
-                          {
-                            Array.from({ length: 19 }, (_, image_index) => (
-                              <img
-                                key={image_index}
-                                src={`/assets/article/intro${
-                                  image_index + 1
-                                }.jpg`}
-                                alt="image"
-                                className="w-40 rounded-2xl"
-                              />
-                            ))
-                            /* this is for images */
-                          }
-                        </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
                   <p className="font-extrabold span-color font-itim text-2xl pb-2">
                     Technology Solutions
                   </p>
