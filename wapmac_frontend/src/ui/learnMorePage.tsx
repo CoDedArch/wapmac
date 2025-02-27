@@ -34,11 +34,11 @@ class LearnMorePage extends Component<{}, { currentImageIndex: number }> {
             style={{ backgroundImage: `url('/assets/landing-pic.png')` }}
           >
             <div className="relative pt-2 space-y-8 top-0 w-full left-0 right-0 h-full bg-black/55 text-white">
-              <p className="font-extrabold agenda text-3xl text-center font-koh">
+              <p className="font-extrabold agenda text-3xl sm:text-5xl sm:mt-20 text-center font-koh">
                 WAPMAC PROJECTS
               </p>
               <div>
-                <p className="font-extrabold span-color text-2xl font-itim pb-2 pl-2">
+                <p className="font-extrabold span-color text-2xl sm:text-4xl font-itim pb-2 pl-2">
                   Upcoming
                 </p>
                 <div className="flex gap-2 flex-wrap justify-center p-3">
@@ -48,12 +48,12 @@ class LearnMorePage extends Component<{}, { currentImageIndex: number }> {
                     className="max-w-full max-h-60 rounded-2xl"
                   />
                 </div>
-                <article className="bg-black/55 space-y-5 font-itim pb-10 px-2">
-                  <p className="font-bold text-center text-md font-koh">
+                <article className="bg-black/55 space-y-5 font-itim pb-10 px-2 sm:px-10 sm:text-3xl">
+                  <p className="font-bold text-center text-md sm:text-3xl font-koh">
                     <span className="span-color italic">WAPMAC</span> Team
                     Engages MP for Tarkwa-Nsuaem on Water Pollution Control
                   </p>
-                  <div className="text-lg space-y-5">
+                  <div className="text-lg sm:text-2xl space-y-5">
                     <p>
                       On Monday, 17th February 2025, the Water Pollution
                       Monitoring and Conservation (WAPMAC) team had a productive
@@ -83,7 +83,7 @@ class LearnMorePage extends Component<{}, { currentImageIndex: number }> {
                     <span className="span-color italic">WAPMAC</span>{" "}
                     Presentation
                   </p>
-                  <div className="text-lg space-y-5">
+                  <div className="text-lg sm:text-2xl space-y-5">
                     <p>
                       The meeting featured an insightful presentation by{" "}
                       <strong>Dr Eric Gyimah</strong>, an environmental
@@ -198,7 +198,7 @@ class LearnMorePage extends Component<{}, { currentImageIndex: number }> {
                       #GalamseyMustStopInourRivers. #EnvironmentalConservation
                     </p>
                   </div>
-                  <p className="font-extrabold span-color font-itim text-2xl pb-2">
+                  <p className="font-extrabold span-color font-itim text-2xl sm:text-4xl mt-10 sm:mt-20 pb-2">
                     Technology Solutions
                   </p>
                   <ul className="pb-20 space-y-10">
@@ -226,7 +226,7 @@ class LearnMorePage extends Component<{}, { currentImageIndex: number }> {
                       <p className="font-bold font-itim">
                         WAPMAC WATER QUALITY SENSOR
                       </p>
-                      <div className="bg-gray-200 p-4 m-2 rounded">
+                      <div className="p-4 m-2 rounded flex justify-center">
                         <video
                           src="/assets/technologies/device1.mp4" // Replace with your actual video URL
                           width="150"
@@ -235,19 +235,22 @@ class LearnMorePage extends Component<{}, { currentImageIndex: number }> {
                           autoPlay
                           loop
                           muted
-                          className="w-full"
+                          className="sm:w-[10em]"
                         />
                       </div>
                     </li>
-                    <li className="space-y-5">
+                    <li className="space-y-5 ">
                       <p className="font-bold font-itim">
                         WAPMAC WATER QUALITY MONITORING CENTER
                       </p>
+                      <div className="flex justify-center">
+
                       <img
                         src="/assets/technologies/device2.jpg"
                         alt="monitoring center"
                         className="rounded-2xl"
                       />
+                      </div>
                     </li>
                   </ul>
                 </article>
