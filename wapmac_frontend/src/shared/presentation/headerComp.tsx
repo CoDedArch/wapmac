@@ -78,10 +78,10 @@ export class Header extends Component<{}, HeaderState> {
         </div>
         <header className="flex items-center justify-between px-5 py-2 pt-4 pb-6 main-bg">
           <Link to="/" className="flex items-center span-color font-extrabold gap-2">
-            <img src="/assets/logo.png" alt="logo" />
-            <p>
+            <img src="/assets/logo.png" alt="logo" className="sm:w-20" />
+            <p className="text-2xl sm:text-4xl">
               WAPMAC
-              <span className="block text-[10px] text-white">Safeguarding Water for Generations</span>
+              <span className="block text-[10px] sm:text-[20px] text-white">Safeguarding Water for Generations</span>
             </p>
           </Link>
           {/* Toggle between menu.png and close.png based on isMenuOpen state */}
@@ -89,7 +89,7 @@ export class Header extends Component<{}, HeaderState> {
             ref={this.menuButtonRef}
             src={isMenuOpen ? "/assets/close.png" : "/assets/menu.png"}
             alt="menu"
-            className={isMenuOpen ? "" : "w-8 h-5 cursor-pointer"}
+            className={isMenuOpen ? "" : "w-8 h-5 cursor-pointer sm:hidden"}
             onClick={this.toggleMenu} // Toggle menu on click
           />
         </header>

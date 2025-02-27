@@ -55,17 +55,19 @@ class ObjectivesComp extends Component <{}, {inView:boolean}> {
     const { inView } = this.state;
     const controls = inView ? "visible" : "hidden";
     return (
-      <section className="p-2 space-y-13 section-sec " ref = {this.ref}>
-        <h1 className="text-2xl font-semibold text-center h-headers font-koh mt-6">
+      <section className="p-2 sm:p-0 space-y-13 section-sec sm:flex" ref = {this.ref}>
+        <div className="sm:w-1/2">
+        <h1 className="text-2xl sm:text-5xl font-semibold text-center h-headers font-koh mt-6 sm:mt-20 sm:px-20">
           Our Objectives
         </h1>
-        <div className="flex justify-center gap-6">
+        <div className="flex justify-center gap-6 sm:hidden">
           <img src="/assets/img1.png" alt="image 1" />
           <img src="/assets/img2.png" alt="image 2" />
         </div>
-        <div className="relative pl-8">
-          <img src="/assets/line.png" alt="line" className="w-40 h-[40em]" />
-          <ul className="absolute w-full top-0 left-0 right-0 pl-6 space-y-6">
+        <div className="relative pl-8 sm:mt-20">
+          <img src="/assets/line.png" alt="line" className="w-40 h-[40em] sm:hidden" />
+          <img src="/assets/linel.png" alt="line" className="h-full hidden sm:block" />
+          <ul className="absolute w-full top-0 left-0 right-0 pl-6 space-y-6 sm:space-y-20">
             {objectives.map((obj, obj_index) => (
               <motion.li
                 key={obj_index}
@@ -75,10 +77,14 @@ class ObjectivesComp extends Component <{}, {inView:boolean}> {
                 animate={controls}
               >
                 <span className="w-4 span-bg h-4 rounded-full absolute shadow-md"></span>
-                <p className="pl-9 pb-2 h-content font-bold font-itim">{obj}</p>
+                <p className="pl-9 pb-2 h-content font-bold font-itim sm:text-4xl sm:pr-20">{obj}</p>
               </motion.li>
             ))}
           </ul>
+        </div>
+        </div>
+        <div className="w-1/2 bg-amber-200 hidden sm:block">
+          <img src="/assets/bg.png" alt="bg image" className="w-full" />
         </div>
       </section>
     );

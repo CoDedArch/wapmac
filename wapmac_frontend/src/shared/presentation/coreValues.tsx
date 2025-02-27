@@ -1,15 +1,18 @@
 import { Component, createRef, RefObject } from "react";
 import { motion } from "framer-motion";
+import { Divide } from "lucide-react";
 
 const areas = [
+  {
+    area: "Monitoring Systems",
+    desc: "Leveraging technology for effective monitoring and early detection of water quality issues.",
+    image: "/assets/monitor.png",
+  },
   {
     area: "Water Pollution",
     desc: "Tracking pollutants in water bodies through preventive and corrective measures.",
   },
-  {
-    area: "Monitoring Systems",
-    desc: "Leveraging technology for effective monitoring and early detection of water quality issues.",
-  },
+  
   {
     area: "Conservation Practices",
     desc: "Encouraging practices like afforestation, reduction of water wastage and safe disposal of waste.",
@@ -17,6 +20,7 @@ const areas = [
   {
     area: "Community Engagement",
     desc: "Building public awareness and participation through education and advocacy.",
+    image: "/assets/community.png",
   },
   {
     area: "Policy Advocacy",
@@ -70,24 +74,67 @@ class CoreValuesComp extends Component<{}, { inView: boolean }> {
     const controls = inView ? "visible" : "hidden";
     return (
       <section className="relative main-bg pb-20">
-        <h1 className="text-center text-white font-bold text-2xl px-20 pt-10 font-koh">
+        <h1 className="text-center sm:text-left sm:text-5xl  sm:w-[14em] text-white font-bold text-2xl px-20 pt-10 font-koh">
           Our Core Focused Areas
         </h1>
-        <ul className="pl-6 pr-1 space-y-6 mt-10" ref={this.ref}>
+        <ul
+          className="pl-6 pr-1 space-y-6 mt-10 sm:flex flex-wrap justify-between gap-1 sm:px-30"
+          ref={this.ref}
+        >
           {areas.map((area, area_index) => (
             <motion.li
               key={area_index}
-              className="flex gap-1"
+              className="flex gap-1 sm:w-1/3"
               variants={variantsVariant1(area_index)}
               initial="hidden"
               animate={controls}
             >
-              <span className="span-color">0{area_index + 1}</span>
-              <span className="w-25 span-bg h-[01px] mt-3"></span>
-              <div>
-                <h1 className="span-color font-bold">{area.area}</h1>{" "}
-                <p className="text-white text-md font-itim">{area.desc}</p>
-              </div>
+              {area_index === 0 ? (
+                <div className="hidden sm:block space-y-3">
+                  <h1 className="span-color font-bold sm:text-5xl">
+                    {area.area}
+                  </h1>{" "}
+                  <img src={area.image} alt="monitor" />
+                  <p className="text-white text-md font-itim sm:text-3xl">
+                    {area.desc}
+                  </p>
+                </div>
+              ) : area_index === 3 ? (
+                <div className="hidden sm:flex gap-2">
+                  <div>
+                    <img
+                      src={area.image}
+                      alt="community"
+                      className="w-[60em] h-full"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <h1 className="span-color font-bold sm:text-5xl">
+                      {area.area}
+                    </h1>{" "}
+                    <p className="text-white text-md font-itim sm:text-3xl">
+                      {area.desc}
+                    </p>
+                  </div>
+                </div>
+              ) : null}
+
+              {
+                <>
+                <span className="span-color sm:hidden">
+                    0{area_index + 1}
+                  </span>
+                  <span className="w-25 span-bg h-[01px] mt-3 sm:hidden"></span>
+                  <div className={`${area_index === 0 ? "sm:hidden" : area_index === 3 ? "sm:hidden" : "sm:block" }`}>
+                    <h1 className="span-color font-bold sm:text-5xl ">
+                      {area.area}
+                    </h1>{" "}
+                    <p className="text-white text-md font-itim sm:text-3xl">
+                      {area.desc}
+                    </p>
+                  </div>
+                </>
+              }
             </motion.li>
           ))}
         </ul>

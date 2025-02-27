@@ -86,6 +86,8 @@ const experts: Expert[] = [
 class PartnersComp extends Component<PartnerProps, PartnerCompState> {
   ref: RefObject<HTMLDivElement | null>;
   observer!: IntersectionObserver;
+  hasAnimated: boolean = false;
+
   constructor(props: PartnerProps) {
     super(props);
     this.state = {
@@ -99,7 +101,10 @@ class PartnersComp extends Component<PartnerProps, PartnerCompState> {
   componentDidMount() {
     this.observer = new IntersectionObserver(
       ([entry]) => {
-        this.setState({ inView: entry.isIntersecting });
+        if (entry.isIntersecting && !this.hasAnimated) {
+          this.setState({ inView: true });
+          this.hasAnimated = true;
+        }
       },
       { threshold: 0.1 }
     );
@@ -113,7 +118,6 @@ class PartnersComp extends Component<PartnerProps, PartnerCompState> {
       this.observer.unobserve(this.ref.current);
     }
   }
-
   handleLeftClick = () => {
     const { leftExperts, currentExpert, rightExperts } = this.state;
 
@@ -155,13 +159,13 @@ class PartnersComp extends Component<PartnerProps, PartnerCompState> {
         className="main-bg relative -top-20 space-y-40 overflow-hidden"
         style={{ backgroundImage: `url('/assets/partners.png')` }}
       >
-        <h1 className="text-center text-white font-bold text-2xl px-24 pt-10 font-koh">
+        <h1 className="text-center text-white font-bold text-2xl sm:text-5xl px-24 pt-10 font-koh">
           Our Team of Experts
         </h1>
-        <section className="relative flex xl:justify-center">
+        <section className="relative flex xl:justify-center sm:mt-20">
           {/* Left Indicator */}
           {leftExperts.length > 0 && (
-            <div className="bg-white/50 absolute -left-5 h-[80%] w-10 rounded-full"></div>
+            <div className="bg-white/50 absolute sm:w-60 -left-5 sm:-left-40 h-[80%] w-10 rounded-full sm:rounded-2xl"></div>
           )}
 
           <div className="flex flex-col justify-center items-center space-y-6 pb-10 px-5">
@@ -169,19 +173,24 @@ class PartnersComp extends Component<PartnerProps, PartnerCompState> {
               variants={Variant3}
               initial="hidden"
               animate={controls}
-              className="relative bg-white p-2 text-center pt-20 h-content rounded-3xl mx-4 shadow-2xl"
+              className="relative bg-white p-2 text-center pt-20  h-content rounded-3xl mx-4 shadow-2xl flex flex-col items-center space-y-1"
             >
               <div
-                className="absolute w-[9em] h-[9em] -top-20 rounded-full left-[27%] xl:left-[40%]  bg-cover"
+                className="absolute w-[9em] h-[9em] -top-20 rounded-full left-[27%] xl:left-[45%]  bg-cover"
                 style={{ backgroundImage: `url(${currentExpert.img})` }}
               ></div>
-              <h1 className="text-2xl font-bold">{currentExpert.name}</h1>
-              <h2 className="font-semibold mb-4 font-itim">
+              <h1 className="text-2xl font-bold sm:text-3xl">
+                {currentExpert.name}
+              </h1>
+              <h2 className="font-semibold mb-4 font-itim sm:text-2xl">
                 {currentExpert.role}
               </h2>
               {currentExpert.responsibilities.map(
                 (responsibility, res_index) => (
-                  <p className="font-semibold font-itim" key={res_index}>
+                  <p
+                    className="font-semibold font-itim sm:text-center  sm:w-1/2 sm:text-2xl"
+                    key={res_index}
+                  >
                     - {responsibility}
                   </p>
                 )
@@ -189,23 +198,31 @@ class PartnersComp extends Component<PartnerProps, PartnerCompState> {
             </motion.div>
             <div className="flex gap-50">
               <button
-                className="w-10 flex justify-center main-bg"
+                className="w-20 flex justify-center main-bg sm:shadow shadow-2xl  sm:w-40 sm:p-2 rounded-2xl hover:cursor-pointer"
                 onClick={this.handleLeftClick}
               >
-                <img src="/assets/left.png" alt="right arrow" />
+                <img
+                  src="/assets/left.png"
+                  alt="right arrow"
+                  className="sm:w-10"
+                />
               </button>
               <button
-                className="w-10 flex justify-center main-bg"
+                className="w-10 flex justify-center main-bg  sm:w-40 sm:p-2 rounded-2xl hover:cursor-pointer"
                 onClick={this.handleRightClick}
               >
-                <img src="/assets/right.png" alt="right arrow" />
+                <img
+                  src="/assets/right.png"
+                  alt="right arrow"
+                  className="sm:w-10"
+                />
               </button>
             </div>
           </div>
 
           {/* Right Indicator */}
           {rightExperts.length > 0 && (
-            <div className="bg-white/50 absolute -right-5 h-[80%] w-10 rounded-full"></div>
+            <div className="bg-white/50 absolute -right-5 sm:-right-40 sm:w-60 h-[80%] w-10 rounded-full sm:rounded-2xl"></div>
           )}
         </section>
       </section>
