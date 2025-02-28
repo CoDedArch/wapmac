@@ -84,13 +84,13 @@ class CoreValuesComp extends Component<{}, { inView: boolean }> {
           Our Core Focused Areas
         </h1>
         <ul
-          className="pl-6 pr-1 space-y-6 mt-10 sm:flex flex-wrap justify-between gap-1 sm:px-30"
+          className="pl-6 pr-1 space-y-6 mt-10 lg:flex flex-wrap justify-between gap-1 sm:px-30"
           ref={this.ref}
         >
           {areas.map((area, area_index) => (
             <motion.li
               key={area_index}
-              className="flex gap-1 sm:w-1/3 "
+              className="flex gap-1 lg:w-1/3 "
               variants={window.innerWidth < 640 ? variantsVariant1(area_index) : Variant3(area_index)}
               initial="hidden"
               animate={controls}

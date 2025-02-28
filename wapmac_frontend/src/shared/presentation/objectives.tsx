@@ -61,7 +61,7 @@ class ObjectivesComp extends Component <{}, {inView:boolean}> {
     const controls = inView ? "visible" : "hidden";
     return (
       <section className="p-2 sm:p-0 space-y-13 section-sec sm:flex" ref = {this.ref}>
-        <div className="sm:w-1/2">
+        <div className="lg:w-1/2">
         <h1 className="text-2xl sm:text-5xl font-semibold text-center h-headers font-koh mt-6 sm:mt-20 sm:px-20">
           Our Objectives
         </h1>
@@ -72,7 +72,7 @@ class ObjectivesComp extends Component <{}, {inView:boolean}> {
         <div className="relative pl-8 sm:mt-20">
           <img src="/assets/line.png" alt="line" className="w-40 h-[40em] sm:hidden" />
           <img src="/assets/linel.png" alt="line" className="h-full hidden sm:block" />
-          <ul className="absolute w-full top-0 left-0 right-0 pl-6 space-y-6 sm:space-y-10">
+          <ul className="absolute w-full top-0 left-0 right-0 pl-6 space-y-6 lg:space-y-10">
             {objectives.map((obj, obj_index) => (
               <motion.li
                 key={obj_index}
@@ -82,13 +82,13 @@ class ObjectivesComp extends Component <{}, {inView:boolean}> {
                 animate={controls}
               >
                 <span className="w-4 span-bg h-4 rounded-full absolute shadow-md"></span>
-                <p className="pl-9 pb-2 h-content font-bold font-itim sm:text-4xl sm:pr-20">{obj}</p>
+                <p className="pl-9 pb-2 h-content font-bold font-itim md:text-3xl lg:text-4xl lg:pr-20">{obj}</p>
               </motion.li>
             ))}
           </ul>
         </div>
         </div>
-        <div className="w-1/2 bg-amber-200 hidden sm:block">
+        <div className="w-1/2 bg-amber-200 hidden lg:block">
           <img src="/assets/bg.png" alt="bg image" className="w-full" />
         </div>
       </section>

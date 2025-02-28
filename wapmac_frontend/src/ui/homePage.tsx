@@ -70,7 +70,7 @@ class HomePage extends Component<HomeProp, { inView: boolean }> {
                   variants={Variant1}
                   initial="hidden"
                   animate={controls}
-                  className="pr-10 text-xl text-white opacity-100 font-itim sm:text-center sm:text-5xl sm:px-54"
+                  className="pr-10 text-xl text-white opacity-100 font-itim sm:text-center md:text-5xl lg:px-54"
                 >
                   <b>
                     <em>Water Pollution Monitoring and Conservation</em>

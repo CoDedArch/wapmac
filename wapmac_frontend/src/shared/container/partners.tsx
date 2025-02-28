@@ -173,10 +173,10 @@ class PartnersComp extends Component<PartnerProps, PartnerCompState> {
               variants={Variant3}
               initial="hidden"
               animate={controls}
-              className="relative bg-white p-2 text-center pt-20  h-content rounded-3xl mx-4 shadow-2xl flex flex-col items-center space-y-1"
+              className="relative bg-white p-2 text-center pt-20  h-content rounded-3xl mx-4 md:mx-7 lg:mx-4 shadow-2xl flex flex-col items-center space-y-1"
             >
               <div
-                className="absolute w-[9em] h-[9em] -top-20 rounded-full left-[27%] xl:left-[45%]  bg-cover"
+                className="absolute w-[9em] h-[9em] -top-20 rounded-full left-[27%] md:left-[40%] lg:left-[45%]  bg-cover"
                 style={{ backgroundImage: `url(${currentExpert.img})` }}
               ></div>
               <h1 className="text-2xl font-bold sm:text-3xl">

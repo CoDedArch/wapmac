@@ -54,12 +54,12 @@ class MissionVisionComp extends Component<{}, { inView: boolean }> {
           <img
             src="/assets/vision.png"
             alt="vision logo"
-            className="w-20 sm:w-min"
+            className="w-20 lg:w-min"
           />
-          <h1 className="text-2xl font-semibold h-headers font-koh sm:text-5xl">
+          <h1 className="text-2xl font-semibold h-headers font-koh md:text-4xl lg:text-5xl">
             Our Vision
           </h1>
-          <p className="px-4 sm:p-0 text-lg sm:text-3xl h-content font-semibold font-itim">
+          <p className="px-4 sm:p-0 text-lg md:text-2xl lg:text-3xl h-content font-semibold font-itim">
             To create a world where water resources are clean, conserved, and
             sustainably managed to ensure environmental health and the
             well-being of future generations
@@ -74,12 +74,12 @@ class MissionVisionComp extends Component<{}, { inView: boolean }> {
           <img
             src="/assets/mission.png"
             alt="vision logo"
-            className="w-20 sm:w-min"
+            className="w-20 lg:w-min"
           />
-          <h1 className="text-2xl sm:-mt-5 font-semibold h-headers font-koh sm:text-5xl">
+          <h1 className="text-2xl sm:-mt-5 font-semibold h-headers font-koh md:text-4xl lg:text-5xl">
             Our Mission
           </h1>
-          <p className="px-4 sm:p-0 text-lg sm:text-3xl h-content font-semibold font-itim">
+          <p className="px-4 sm:p-0 text-lg md:text-2xl lg:text-3xl h-content font-semibold font-itim">
             Is committed to combating water pollution through innovative
             monitoring systems, community education, and collaborative
             conservation practices. The agency seeks to drive sustainable
