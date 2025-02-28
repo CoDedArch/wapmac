@@ -36,6 +36,12 @@ const variantsVariant1 = (index: number) => ({
   },
 });
 
+
+const Variant3 =(index:number) => ({
+  hidden: { scale: 0.5 },
+  visible: { scale: 1, transition: { duration: 1, delay: index * 0.5 + 0.2, ease: "easeIn" } },
+});
+
 class CoreValuesComp extends Component<{}, { inView: boolean }> {
   ref: RefObject<HTMLUListElement | null>;
   observer!: IntersectionObserver;
@@ -84,21 +90,29 @@ class CoreValuesComp extends Component<{}, { inView: boolean }> {
           {areas.map((area, area_index) => (
             <motion.li
               key={area_index}
-              className="flex gap-1 sm:w-1/3"
-              variants={variantsVariant1(area_index)}
+              className="flex gap-1 sm:w-1/3 "
+              variants={window.innerWidth < 640 ? variantsVariant1(area_index) : Variant3(area_index)}
               initial="hidden"
               animate={controls}
             >
               {area_index === 0 ? (
-                <div className="hidden sm:block space-y-3">
+                <div className="hidden sm:flex gap-2">
+                <div>
+                  <img
+                    src={area.image}
+                    alt="community"
+                    className="w-[60em] h-full"
+                  />
+                </div>
+                <div className="space-y-2">
                   <h1 className="span-color font-bold sm:text-5xl">
                     {area.area}
                   </h1>{" "}
-                  <img src={area.image} alt="monitor" />
                   <p className="text-white text-md font-itim sm:text-3xl">
                     {area.desc}
                   </p>
                 </div>
+              </div>
               ) : area_index === 3 ? (
                 <div className="hidden sm:flex gap-2">
                   <div>
@@ -125,7 +139,7 @@ class CoreValuesComp extends Component<{}, { inView: boolean }> {
                     0{area_index + 1}
                   </span>
                   <span className="w-25 span-bg h-[01px] mt-3 sm:hidden"></span>
-                  <div className={`${area_index === 0 ? "sm:hidden" : area_index === 3 ? "sm:hidden" : "sm:block" }`}>
+                  <div className={`${area_index === 0 ? "sm:hidden" : area_index === 3 ? "sm:hidden" : area_index == 1 ? "flex flex-col justify-center":"sm:block" }`}>
                     <h1 className="span-color font-bold sm:text-5xl ">
                       {area.area}
                     </h1>{" "}
