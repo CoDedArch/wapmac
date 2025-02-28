@@ -17,6 +17,11 @@ const variants = (index:number) => ({
   },
 });
 
+const Variant3 =(index:number) => ({
+  hidden: { scale: 0.8 },
+  visible: { scale: 1, transition: { duration: 1, delay: index * 0.5 + 0.2, ease: "easeIn" } },
+});
+
 class ObjectivesComp extends Component <{}, {inView:boolean}> {
   ref: RefObject<HTMLUListElement | null>;
     observer!: IntersectionObserver;
@@ -67,12 +72,12 @@ class ObjectivesComp extends Component <{}, {inView:boolean}> {
         <div className="relative pl-8 sm:mt-20">
           <img src="/assets/line.png" alt="line" className="w-40 h-[40em] sm:hidden" />
           <img src="/assets/linel.png" alt="line" className="h-full hidden sm:block" />
-          <ul className="absolute w-full top-0 left-0 right-0 pl-6 space-y-6 sm:space-y-20">
+          <ul className="absolute w-full top-0 left-0 right-0 pl-6 space-y-6 sm:space-y-10">
             {objectives.map((obj, obj_index) => (
               <motion.li
                 key={obj_index}
                 className="flex gap-5"
-                variants={variants(obj_index)}
+                variants={window.innerWidth < 640 ? variants(obj_index) : Variant3(obj_index)}
                 initial="hidden"
                 animate={controls}
               >
