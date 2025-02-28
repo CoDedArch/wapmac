@@ -1,6 +1,6 @@
 import { Component, createRef, RefObject } from "react";
 import { motion } from "framer-motion";
-import { Divide } from "lucide-react";
+
 
 const areas = [
   {
